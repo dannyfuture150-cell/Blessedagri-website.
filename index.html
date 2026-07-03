@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blessed Agri — Healthy Northern Crops, Healthy Life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1e3d2a;
+    --crop:#2b6e3b;
+    --ochre:#c17a2e;
+    --parchment:#f7f3e8;
+    --soil:#5a3a22;
+    --cream-line:#e4dcc7;
+    --paper:#fffdf7;
+    --sun:#e8a13c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background-color:#8fae5c;
+    background-image:
+      linear-gradient(180deg, rgba(215,232,180,0.35) 0%, rgba(143,174,92,0) 220px),
+      radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23335e2e' stroke-width='1.6' stroke-linecap='round' opacity='0.35'%3E%3Cpath d='M6 150 Q4 128 10 110'/%3E%3Cpath d='M14 150 Q17 126 11 108'/%3E%3Cpath d='M22 150 Q20 130 27 112'/%3E%3Cpath d='M40 152 Q38 130 44 114'/%3E%3Cpath d='M48 152 Q51 128 45 110'/%3E%3Cpath d='M62 150 Q60 126 66 108'/%3E%3Cpath d='M70 150 Q73 128 67 110'/%3E%3Cpath d='M78 150 Q76 132 83 116'/%3E%3Cpath d='M96 152 Q94 128 100 110'/%3E%3Cpath d='M104 152 Q107 130 101 112'/%3E%3Cpath d='M118 150 Q116 126 123 108'/%3E%3Cpath d='M126 150 Q129 128 123 110'/%3E%3Cpath d='M134 150 Q132 132 139 116'/%3E%3Cpath d='M150 152 Q148 128 154 112'/%3E%3C/g%3E%3Cg fill='none' stroke='%23477a3f' stroke-width='1.3' stroke-linecap='round' opacity='0.3'%3E%3Cpath d='M30 156 Q29 140 34 128'/%3E%3Cpath d='M86 156 Q85 140 90 128'/%3E%3Cpath d='M142 158 Q141 142 146 130'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 100% 220px, 3px 3px, 160px 160px;
+    background-repeat: no-repeat, repeat, repeat;
+    background-attachment: scroll, fixed, fixed;
+    color:var(--forest);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    color:var(--forest);
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-family:'Work Sans',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    font-size:0.72rem;
+    font-weight:700;
+    color:var(--ochre);
+  }
+
+  /* ===== reduced motion ===== */
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ===== NAV ===== */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,243,232,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--cream-line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px;
+    max-width:1180px; margin:0 auto;
+  }
+  .brandmark{display:flex; align-items:center; gap:12px; text-decoration:none;}
+  .brandmark .sunbadge{
+    width:42px;height:42px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--sun), var(--ochre) 70%);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 2px 8px rgba(193,122,46,0.35);
+  }
+  .brandmark .sunbadge svg{width:22px;height:22px;}
+  .brandname{
+    font-family:'Fraunces',serif; font-weight:700; font-size:1.35rem; color:var(--forest);
+    line-height:1;
+  }
+  .brandname small{
+    display:block; font-family:'Work Sans',sans-serif; font-weight:500;
+    font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--crop); margin-top:3px;
+  }
+  nav.links{display:flex; gap:34px; align-items:center;}
+  nav.links a{
+    text-decoration:none; color:var(--forest); font-weight:600; font-size:0.95rem;
+    position:relative; padding-bottom:4px;
+  }
+  nav.links a:not(.cta)::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--ochre);
+    transition:width 0.25s ease;
+  }
+  nav.links a:not(.cta):hover::after{width:100%;}
+  .cta-btn{
+    background:var(--forest); color:var(--parchment) !important;
+    padding:11px 24px; border-radius:100px; font-weight:700; font-size:0.9rem;
+    box-shadow:0 4px 14px rgba(30,61,42,0.25);
+    transition:transform 0.2s ease, background 0.2s ease;
+  }
+  .cta-btn:hover{background:var(--crop); transform:translateY(-2px);}
+  .menu-toggle{display:none; background:none; border:none; font-size:1.6rem; color:var(--forest); cursor:pointer;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    padding:80px 0 0;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:1180px; margin:0 auto; padding:0 32px;
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:50px; align-items:center;
+    position:relative; z-index:2;
+  }
+  .hero-copy .eyebrow{margin-bottom:18px; display:inline-block;}
+  .hero-copy h1{
+    font-size:clamp(2.6rem, 5vw, 4.2rem);
+    font-weight:700; line-height:1.05; margin-bottom:8px;
+  }
+  .hero-copy h1 .accent{
+    color:var(--ochre); font-style:italic; font-weight:500;
+  }
+  .hero-copy p.lede{
+    font-size:1.18rem; color:#3c4f3f; max-width:480px; margin:22px 0 34px;
+  }
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:40px;}
+  .btn-primary{
+    background:var(--ochre); color:#fff; padding:15px 30px; border-radius:100px;
+    font-weight:700; text-decoration:none; box-shadow:0 8px 20px rgba(193,122,46,0.3);
+    transition:transform 0.2s ease;
+  }
+  .btn-primary:hover{transform:translateY(-3px);}
+  .btn-ghost{
+    border:2px solid var(--forest); color:var(--forest); padding:13px 28px; border-radius:100px;
+    font-weight:700; text-decoration:none; transition:background 0.2s ease, color 0.2s ease;
+  }
+  .btn-ghost:hover{background:var(--forest); color:#fff;}
+  .hero-stats{display:flex; gap:36px; flex-wrap:wrap; padding-top:8px; border-top:1px solid var(--cream-line);}
+  .hero-stats div{display:flex; flex-direction:column;}
+  .hero-stats strong{font-family:'Fraunces',serif; font-size:1.9rem; color:var(--forest);}
+  .hero-stats span{font-size:0.8rem; color:#5a6b5c; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;}
+
+  /* field horizon signature illustration */
+  .field-scene{
+    position:relative; height:420px; border-radius:28px; overflow:hidden;
+    background:linear-gradient(180deg, #fdf6e3 0%, #f6e9c8 38%, #cfe0ad 39%, #a9c97e 60%, #7fae5c 100%);
+    box-shadow:0 30px 60px rgba(30,45,30,0.18);
+  }
+  .field-scene .sun{
+    position:absolute; top:38px; right:52px; width:88px; height:88px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #ffe9b8, var(--sun) 55%, var(--ochre) 100%);
+    box-shadow:0 0 60px 18px rgba(232,161,60,0.45);
+    animation:rise 5s ease-in-out infinite alternate;
+  }
+  @keyframes rise{from{transform:translateY(0);} to{transform:translateY(-8px);}}
+  .field-scene .row{position:absolute; left:-10%; width:120%; height:26px; background:#6d9a49; opacity:0.55; border-radius:50%;}
+  .field-scene .row1{bottom:70px;} .field-scene .row2{bottom:40px; opacity:0.7;} .field-scene .row3{bottom:8px; opacity:0.85;}
+  .field-scene .badge{
+    position:absolute; left:24px; bottom:24px; background:rgba(255,253,247,0.92);
+    padding:14px 20px; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,0.12);
+    max-width:200px;
+  }
+  .field-scene .badge strong{display:block; font-family:'Fraunces',serif; font-size:1.05rem; color:var(--forest);}
+  .field-scene .badge span{font-size:0.78rem; color:#5a6b5c;}
+
+  .hero-divider{
+    display:block; width:100%; height:90px; margin-top:60px;
+  }
+
+  /* ===== SECTION HEADER ===== */
+  .section{padding:90px 0;}
+  .section.tight{padding:60px 0;}
+  .section-head{max-width:640px; margin:0 auto 56px; text-align:center;}
+  .section-head .eyebrow{display:block; margin-bottom:14px;}
+  .section-head h2{font-size:clamp(2rem,3.6vw,2.8rem); font-weight:700;}
+  .section-head p{color:#4a5c4c; margin-top:14px; font-size:1.05rem;}
+
+  /* ===== CROPS / OFFER GRID ===== */
+  .crops-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:26px;
+  }
+  .crop-card{
+    background:var(--paper); border-radius:24px; overflow:hidden;
+    border:1px solid var(--cream-line);
+    box-shadow:0 10px 26px rgba(30,45,30,0.05);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .crop-card:hover{transform:translateY(-8px); box-shadow:0 22px 40px rgba(30,45,30,0.12);}
+  .crop-photo{
+    height:150px; position:relative;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .crop-photo svg{width:76px; height:76px;}
+  .crop-photo.beans{background:linear-gradient(160deg,#f3e4c8,#e3c78f);}
+  .crop-photo.maize{background:linear-gradient(160deg,#fdeec0,#f4cf5b);}
+  .crop-photo.soya{background:linear-gradient(160deg,#f0e9d6,#d8c99a);}
+  .crop-photo.millet{background:linear-gradient(160deg,#f6e7bd,#e7bf6b);}
+  .crop-body{padding:20px 20px 26px; text-align:center;}
+  .crop-body .tag-sale{
+    font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--crop); font-weight:700;
+  }
+  .crop-body h3{font-size:1.35rem; margin-top:6px; font-weight:700;}
+  .crop-body p{font-size:0.88rem; color:#5a6b5c; margin-top:8px;}
+
+  /* ===== VALUES ===== */
+  .values-band{
+    background:var(--forest); color:var(--parchment); border-radius:32px;
+    padding:56px 48px; display:grid; grid-template-columns:repeat(3,1fr); gap:36px;
+  }
+  .value-col{text-align:center; padding:0 12px;}
+  .value-col .icon{
+    width:64px; height:64px; border-radius:50%; background:rgba(255,255,255,0.08);
+    display:flex; align-items:center; justify-content:center; margin:0 auto 18px;
+    border:1px solid rgba(255,255,255,0.18);
+  }
+  .value-col .icon svg{width:30px; height:30px;}
+  .value-col h4{color:#fff; font-size:1.2rem; margin-bottom:8px;}
+  .value-col p{font-size:0.9rem; color:#c9d6c9;}
+
+  /* ===== STORY / ABOUT ===== */
+  .story{
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:center;
+  }
+  .story-art{
+    position:relative; border-radius:28px; overflow:hidden; height:460px;
+    background:linear-gradient(200deg,#e8dcb5,#cfe0ad 55%,#8fb768);
+  }
+  .story-art .tractor-mark{
+    position:absolute; bottom:30px; left:30px; right:30px;
+    background:rgba(255,253,247,0.94); border-radius:18px; padding:18px 22px;
+    box-shadow:0 12px 28px rgba(0,0,0,0.12);
+  }
+  .story-art .tractor-mark strong{font-family:'Fraunces',serif; display:block; font-size:1.1rem; color:var(--forest);}
+  .story-art .tractor-mark span{font-size:0.82rem; color:#5a6b5c;}
+  .story-copy h2{font-size:clamp(1.9rem,3vw,2.5rem); margin-bottom:20px;}
+  .story-copy p{color:#3c4f3f; margin-bottom:18px; font-size:1.03rem;}
+  .story-list{list-style:none; margin-top:26px; display:flex; flex-direction:column; gap:14px;}
+  .story-list li{display:flex; gap:14px; align-items:flex-start; font-size:0.98rem; color:#2f4530;}
+  .story-list li svg{flex-shrink:0; width:22px; height:22px; margin-top:2px; color:var(--crop);}
+
+  /* ===== PROCESS / HOW WE WORK ===== */
+  .process-row{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative;
+  }
+  .process-row::before{
+    content:''; position:absolute; top:34px; left:12%; right:12%; height:2px;
+    background:repeating-linear-gradient(90deg, var(--cream-line) 0 10px, transparent 10px 18px);
+    z-index:0;
+  }
+  .process-step{position:relative; z-index:1; text-align:center; padding:0 16px;}
+  .process-step .num{
+    width:68px; height:68px; border-radius:50%; background:var(--paper); border:2px solid var(--ochre);
+    color:var(--ochre); font-family:'Fraunces',serif; font-weight:700; font-size:1.3rem;
+    display:flex; align-items:center; justify-content:center; margin:0 auto 18px;
+  }
+  .process-step h4{font-size:1.05rem; margin-bottom:8px;}
+  .process-step p{font-size:0.86rem; color:#5a6b5c;}
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .t-card{
+    background:var(--paper); border:1px solid var(--cream-line); border-radius:22px; padding:30px 26px;
+    box-shadow:0 8px 20px rgba(30,45,30,0.05);
+  }
+  .t-card .stars{color:var(--ochre); font-size:0.95rem; margin-bottom:14px; letter-spacing:2px;}
+  .t-card p{font-size:0.96rem; color:#3c4f3f; margin-bottom:20px; font-style:italic;}
+  .t-card footer{display:flex; align-items:center; gap:12px;}
+  .t-avatar{
+    width:42px;height:42px;border-radius:50%; background:var(--crop); color:#fff;
+    display:flex;align-items:center;justify-content:center; font-family:'Fraunces',serif; font-weight:700;
+  }
+  .t-name{font-weight:700; font-size:0.9rem; color:var(--forest);}
+  .t-role{font-size:0.78rem; color:#7a8b7a;}
+
+  /* ===== FAQ ===== */
+  .faq-list{max-width:780px; margin:0 auto; display:flex; flex-direction:column; gap:14px;}
+  .faq-item{
+    background:var(--paper); border:1px solid var(--cream-line); border-radius:16px; overflow:hidden;
+  }
+  .faq-q{
+    padding:20px 24px; display:flex; justify-content:space-between; align-items:center; cursor:pointer;
+    font-weight:700; font-size:1rem; color:var(--forest);
+  }
+  .faq-q .plus{font-size:1.4rem; color:var(--ochre); transition:transform 0.2s ease; font-weight:400;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height 0.3s ease;}
+  .faq-a p{padding:0 24px 20px; color:#4a5c4c; font-size:0.94rem;}
+
+  /* ===== CONTACT / CTA ===== */
+  .contact-band{
+    background:linear-gradient(135deg, var(--forest), #163021);
+    border-radius:32px; padding:64px 56px; color:#fff;
+    display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;
+    position:relative; overflow:hidden;
+  }
+  .contact-band::after{
+    content:''; position:absolute; width:340px; height:340px; border-radius:50%;
+    background:radial-gradient(circle, rgba(232,161,60,0.18), transparent 70%);
+    top:-100px; right:-100px;
+  }
+  .contact-band h2{color:#fff; font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:16px;}
+  .contact-band p{color:#c9d6c9; font-size:1rem; max-width:400px;}
+  .contact-methods{display:flex; flex-direction:column; gap:20px; position:relative; z-index:1;}
+  .c-method{
+    display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.07);
+    padding:18px 22px; border-radius:16px; border:1px solid rgba(255,255,255,0.14);
+    text-decoration:none; color:#fff; transition:background 0.2s ease;
+  }
+  .c-method:hover{background:rgba(255,255,255,0.13);}
+  .c-icon{
+    width:46px; height:46px; border-radius:12px; background:var(--ochre);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .c-icon svg{width:22px; height:22px; color:#fff;}
+  .c-method strong{display:block; font-size:0.98rem;}
+  .c-method span{font-size:0.82rem; color:#c9d6c9;}
+
+  /* ===== FOOTER ===== */
+  footer.site-footer{
+    border-top:1px solid var(--cream-line); padding:44px 0 30px; margin-top:20px;
+  }
+  .footer-grid{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; margin-bottom:30px;
+  }
+  .footer-brand{max-width:280px;}
+  .footer-brand p{font-size:0.88rem; color:#5a6b5c; margin-top:12px;}
+  .footer-cols{display:flex; gap:60px; flex-wrap:wrap;}
+  .footer-col h5{font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--forest); margin-bottom:14px;}
+  .footer-col a{display:block; font-size:0.9rem; color:#4a5c4c; text-decoration:none; margin-bottom:10px;}
+  .footer-col a:hover{color:var(--ochre);}
+  .footer-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    padding-top:22px; border-top:1px solid var(--cream-line); font-size:0.82rem; color:#7a8b7a;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 980px){
+    .hero-inner{grid-template-columns:1fr;}
+    .field-scene{height:320px;}
+    .crops-grid{grid-template-columns:repeat(2,1fr);}
+    .values-band{grid-template-columns:1fr; gap:30px;}
+    .story{grid-template-columns:1fr;}
+    .story-art{height:320px;}
+    .process-row{grid-template-columns:repeat(2,1fr); row-gap:40px;}
+    .process-row::before{display:none;}
+    .testimonials{grid-template-columns:1fr;}
+    .contact-band{grid-template-columns:1fr; padding:44px 28px;}
+  }
+  @media (max-width: 700px){
+    nav.links{
+      position:fixed; top:76px; left:0; right:0; background:var(--paper);
+      flex-direction:column; padding:24px 32px; gap:20px; border-bottom:1px solid var(--cream-line);
+      transform:translateY(-130%); transition:transform 0.3s ease; z-index:40;
+    }
+    nav.links.open{transform:translateY(0);}
+    .menu-toggle{display:block;}
+    .crops-grid{grid-template-columns:1fr 1fr;}
+    .hero-stats{gap:22px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brandmark">
+      <span class="sunbadge">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" fill="#1e3d2a"/><g stroke="#1e3d2a" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.5" y1="5.5" x2="7.2" y2="7.2"/><line x1="16.8" y1="16.8" x2="18.5" y2="18.5"/><line x1="5.5" y1="18.5" x2="7.2" y2="16.8"/><line x1="16.8" y1="7.2" x2="18.5" y2="5.5"/></g></svg>
+      </span>
+      <span class="brandname">Blessed Agri<small>Since 2012 · Northern Region</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <nav class="links" id="navLinks">
+      <a href="#crops">Crops</a>
+      <a href="#story">Our Story</a>
+      <a href="#process">How We Work</a>
+      <a href="#reviews">Customers</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="cta-btn">Call Us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">Farm-direct · Northern Ghana</span>
+        <h1>Healthy Northern Crops,<br><span class="accent">Healthy Life.</span></h1>
+        <p class="lede">We are committed to providing high-quality, nutritious crops that promote a healthy life and support sustainable agriculture — grown on our own fields and sold straight to you.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Order Your Harvest</a>
+          <a href="#crops" class="btn-ghost">See What We Grow</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>12+</strong><span>Years Farming</span></div>
+          <div><strong>4</strong><span>Core Crops</span></div>
+          <div><strong>100%</strong><span>Northern Grown</span></div>
+        </div>
+      </div>
+      <div class="field-scene" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="row row1"></div>
+        <div class="row row2"></div>
+        <div class="row row3"></div>
+        <div class="badge"><strong>Blessed Harvest</strong><span>Nutrient-rich grains, cut fresh from the field</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CROPS -->
+  <section class="section" id="crops">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What We Offer</span>
+        <h2>Four crops. One standard of quality.</h2>
+        <p>Every sack we sell is graded, cleaned, and ready for the mill, the market, or your table.</p>
+      </div>
+      <div class="crops-grid">
+        <div class="crop-card">
+          <div class="crop-photo beans">
+            <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="22" ry="16" fill="#a9773a"/><ellipse cx="24" cy="28" rx="6" ry="8" fill="#f3e6c8"/><ellipse cx="34" cy="24" rx="6" ry="8" fill="#f3e6c8"/><ellipse cx="30" cy="38" rx="6" ry="8" fill="#f3e6c8"/><ellipse cx="42" cy="34" rx="6" ry="8" fill="#f3e6c8"/></svg>
+          </div>
+          <div class="crop-body">
+            <span class="tag-sale">Sales of</span>
+            <h3>Beans</h3>
+            <p>Hand-sorted, high-protein beans grown in mineral-rich northern soil.</p>
+          </div>
+        </div>
+        <div class="crop-card">
+          <div class="crop-photo maize">
+            <svg viewBox="0 0 64 64" fill="none"><rect x="26" y="8" width="12" height="46" rx="6" fill="#e9b93d"/><g fill="#c99a26"><circle cx="30" cy="16" r="1.6"/><circle cx="34" cy="16" r="1.6"/><circle cx="30" cy="22" r="1.6"/><circle cx="34" cy="22" r="1.6"/><circle cx="30" cy="28" r="1.6"/><circle cx="34" cy="28" r="1.6"/><circle cx="30" cy="34" r="1.6"/><circle cx="34" cy="34" r="1.6"/><circle cx="30" cy="40" r="1.6"/><circle cx="34" cy="40" r="1.6"/></g><path d="M26 10 L14 2" stroke="#5a8a3a" stroke-width="4" stroke-linecap="round"/><path d="M38 10 L50 2" stroke="#5a8a3a" stroke-width="4" stroke-linecap="round"/></svg>
+          </div>
+          <div class="crop-body">
+            <span class="tag-sale">Sales of</span>
+            <h3>Maize</h3>
+            <p>Full, golden kernels dried naturally under the northern sun.</p>
+          </div>
+        </div>
+        <div class="crop-card">
+          <div class="crop-photo soya">
+            <svg viewBox="0 0 64 64" fill="none"><path d="M32 8c10 0 16 8 16 18s-6 22-16 22-16-12-16-22S22 8 32 8z" fill="#c8b06a"/><circle cx="26" cy="26" r="5.5" fill="#e8dcb0"/><circle cx="38" cy="26" r="5.5" fill="#e8dcb0"/><circle cx="32" cy="38" r="5.5" fill="#e8dcb0"/></svg>
+          </div>
+          <div class="crop-body">
+            <span class="tag-sale">Sales of</span>
+            <h3>Soya Beans</h3>
+            <p>Rich in protein and oil content, ideal for feed and food processing.</p>
+          </div>
+        </div>
+        <div class="crop-card">
+          <div class="crop-photo millet">
+            <svg viewBox="0 0 64 64" fill="none"><path d="M32 4c2 14 2 28 0 56" stroke="#a9773a" stroke-width="3" stroke-linecap="round"/><g fill="#e0b84a"><ellipse cx="26" cy="12" rx="4" ry="6"/><ellipse cx="38" cy="16" rx="4" ry="6"/><ellipse cx="26" cy="24" rx="4" ry="6"/><ellipse cx="38" cy="28" rx="4" ry="6"/><ellipse cx="26" cy="36" rx="4" ry="6"/><ellipse cx="38" cy="40" rx="4" ry="6"/></g></svg>
+          </div>
+          <div class="crop-body">
+            <span class="tag-sale">Sales of</span>
+            <h3>Millet <small style="font-size:0.6em;">etc.</small></h3>
+            <p>Drought-resistant, nutrient-dense grain, a staple across the region.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section tight">
+    <div class="wrap">
+      <div class="values-band">
+        <div class="value-col">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e8a13c" stroke-width="1.8"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7-5.4-4.7 7.1-.6z"/></svg></div>
+          <h4>High Quality</h4>
+          <p>Every batch is graded by hand before it ever leaves our stores.</p>
+        </div>
+        <div class="value-col">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e8a13c" stroke-width="1.8"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M17 3v5h-5M7 21v-5h5"/></svg></div>
+          <h4>Sustainable Farming</h4>
+          <p>Crop rotation and soil care keep our land productive for the long run.</p>
+        </div>
+        <div class="value-col">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e8a13c" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.9z"/></svg></div>
+          <h4>Better Health, Better Life</h4>
+          <p>Nutritious crops from our farm, straight to your family's table.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section" id="story">
+    <div class="wrap">
+      <div class="story">
+        <div class="story-art">
+          <div class="tractor-mark"><strong>Rooted since 2012</strong><span>Family-run fields across the Northern Region</span></div>
+        </div>
+        <div class="story-copy">
+          <span class="eyebrow">Our Story</span>
+          <h2>Farming the way our grandparents taught us — with today's standards.</h2>
+          <p>Blessed Agri began as a single family plot growing beans and maize for the local market. Over twelve years, that plot grew into a trusted supply chain reaching households, schools, and processors across the north.</p>
+          <p>We still plant, harvest, and grade every batch ourselves — no middlemen guessing at quality on our behalf.</p>
+          <ul class="story-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Owned and operated by a local farming family</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Crops graded and cleaned before sale</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Supplying households, schools, and processors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section tight" id="process" style="background:var(--paper); border-top:1px solid var(--cream-line); border-bottom:1px solid var(--cream-line);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How We Work</span>
+        <h2>From our field to your table</h2>
+      </div>
+      <div class="process-row">
+        <div class="process-step">
+          <div class="num">1</div>
+          <h4>Plant &amp; Nurture</h4>
+          <p>Seasonal planting with sustainable rotation practices.</p>
+        </div>
+        <div class="process-step">
+          <div class="num">2</div>
+          <h4>Harvest &amp; Grade</h4>
+          <p>Hand-picked and sorted by size, quality, and moisture.</p>
+        </div>
+        <div class="process-step">
+          <div class="num">3</div>
+          <h4>Clean &amp; Pack</h4>
+          <p>Cleaned and bagged ready for market or mill.</p>
+        </div>
+        <div class="process-step">
+          <div class="num">4</div>
+          <h4>Deliver</h4>
+          <p>Sold direct — by phone, by visit, or by bulk order.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Our Customers</span>
+        <h2>Trusted by households and businesses alike</h2>
+      </div>
+      <div class="testimonials">
+        <div class="t-card">
+          <div class="stars">★★★★★</div>
+          <p>"The maize is always dry and clean — no waste, no complaints from my customers."</p>
+          <footer><div class="t-avatar">A</div><div><div class="t-name">Abena O.</div><div class="t-role">Market Trader, Tamale</div></div></footer>
+        </div>
+        <div class="t-card">
+          <div class="stars">★★★★★</div>
+          <p>"We buy soya beans in bulk for our feed mill. Blessed Agri never misses a delivery date."</p>
+          <footer><div class="t-avatar">K</div><div><div class="t-name">Kwame T.</div><div class="t-role">Feed Mill Owner</div></div></footer>
+        </div>
+        <div class="t-card">
+          <div class="stars">★★★★★</div>
+          <p>"Their beans cook faster and taste fresher than anything else I've bought locally."</p>
+          <footer><div class="t-avatar">F</div><div><div class="t-name">Fati M.</div><div class="t-role">Home Cook</div></div></footer>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section tight" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Questions</span>
+        <h2>Good to know</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">Do you sell in bulk or small quantities? <span class="plus">+</span></div>
+          <div class="faq-a"><p>Both. We supply single bags for households as well as bulk orders for mills, schools, and traders — call us to discuss volume pricing.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Which areas do you deliver to? <span class="plus">+</span></div>
+          <div class="faq-a"><p>We deliver across the Northern Region and can arrange transport for larger orders to other regions on request.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is your produce organic? <span class="plus">+</span></div>
+          <div class="faq-a"><p>Yes — we follow sustainable, low-input farming practices across all our fields, without synthetic pesticides.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How do I place an order? <span class="plus">+</span></div>
+          <div class="faq-a"><p>Call or WhatsApp us on either of our numbers, or email us directly. We'll confirm availability and delivery.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="contact-band">
+        <div>
+          <span class="eyebrow" style="color:#e8a13c;">Get In Touch</span>
+          <h2>Ready to order your next harvest?</h2>
+          <p>Call, message, or email us — we're happy to talk quantities, delivery, and pricing.</p>
+        </div>
+        <div class="contact-methods">
+          <a class="c-method" href="tel:0592061990">
+            <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 3a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c1 .3 2 .5 3 .6a2 2 0 0 1 1.7 2z"/></svg></span>
+            <span><strong>0592061990 / 0201773519</strong><span>Call us anytime</span></span>
+          </a>
+          <a class="c-method" href="mailto:blessedagri.co@gmail.com">
+            <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></span>
+            <span><strong>blessedagri.co@gmail.com</strong><span>Email us your order</span></span>
+          </a>
+          <a class="c-method" href="#" onclick="return false;">
+            <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21c-4.4-2.6-9-6.6-9-11.3A5.7 5.7 0 0 1 12 6.5 5.7 5.7 0 0 1 21 9.7C21 14.4 16.4 18.4 12 21z"/></svg></span>
+            <span><strong>Northern Region, Ghana</strong><span>Visit our farm store</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brandname" style="font-size:1.2rem;">Blessed Agri</span>
+        <p>Healthy northern crops, healthy life. Farming beans, maize, soya beans, and millet since 2012.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <a href="#crops">Crops</a>
+          <a href="#story">Our Story</a>
+          <a href="#process">How We Work</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="tel:0592061990">0592061990</a>
+          <a href="tel:0201773519">0201773519</a>
+          <a href="mailto:blessedagri.co@gmail.com">blessedagri.co@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Blessed Agri. All rights reserved.</span>
+      <span>Northern Region, Ghana</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+      if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+    });
+  });
+</script>
+
+</body>
+</html>
