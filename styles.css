@@ -388,9 +388,10 @@ footer.site-footer{
 }
 @media (max-width: 700px){
   nav.links{
-    position:fixed; top:74px; left:0; right:0; background:var(--paper);
+    position:absolute; top:100%; left:0; right:0; background:var(--paper);
     flex-direction:column; padding:22px 32px; gap:18px; border-bottom:1px solid var(--cream-line);
     transform:translateY(-130%); transition:transform 0.3s ease; z-index:40;
+    box-shadow:0 12px 24px rgba(0,0,0,0.15);
   }
   nav.links.open{transform:translateY(0);}
   .menu-toggle{display:block;}
